@@ -1,15 +1,13 @@
 import tkinter as tk
-
-def verificaClick():
-    print("Botão foi clicado!")
+from logs import criaArquivo
 
 janela = tk.Tk()
 janela.title("Teste arquivo")
 janela.geometry("500x500")
 
-botao1 = tk.Button(janela, text="Clique aqui", command=verificaClick)
+botao1 = tk.Button(janela, text="Gerar arquivo", command=criaArquivo)
 
 
-botao1.pack()
+
 
 janela.mainloop()
