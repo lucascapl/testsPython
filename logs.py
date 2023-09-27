@@ -14,4 +14,8 @@ def criaArquivo():
     else:
         print("O arquivo 'teste.txt' já existe no diretório.")
 
-# def adicionaLog():
+def adicionaLog():
+    horario = datetime.now()
+    localErro = "routes.py"
+    with open(caminhoArquivo, 'a', encoding='utf-8') as arquivo:
+        arquivo.write(f"Ocorreu um erro em {localErro} às {horario}\n")
