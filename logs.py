@@ -16,6 +16,16 @@ def criaArquivo():
 
 def adicionaLog():
     horario = datetime.now()
+    horario = horario.strftime("%Y-%m-%d %H:%M:%S")
     localErro = "routes.py"
-    with open(caminhoArquivo, 'a', encoding='utf-8') as arquivo:
-        arquivo.write(f"Ocorreu um erro em {localErro} às {horario}\n")
+    try:
+        with open(caminhoArquivo, 'a', encoding='utf-8') as arquivo:
+            arquivo.write(f"Ocorreu um erro em {localErro} às {horario}\n")
+        print('Log registrado com sucesso.')
+        
+    except FileNotFoundError as e:
+        print(f"Erro: {e} - O arquivo não foi encontrado.")
+    except PermissionError as e:
+        print(f"Erro: {e} - Permissão negada para acessar o arquivo.")
+    except Exception as e:
+        print(f"Erro desconhecido: {e}")
